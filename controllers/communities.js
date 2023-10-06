@@ -6,7 +6,6 @@ async function handleCreateCommunity(req, res){
     const {name} = req.body;
     const slug = slugify(name, { lower: true });
     const userId = req.user.id; 
-    console.log(name, slug, userId);
     const result = await Community.create({
         name: name,
         slug: slug,
@@ -16,7 +15,7 @@ async function handleCreateCommunity(req, res){
     const member = await Member.create({
         community: result._id,
         user: result.owner,
-        role: '651e833cbdcd05f8274bd529'
+        role: '7115918095876943514'
     })
 
     return res.status(201).json({
